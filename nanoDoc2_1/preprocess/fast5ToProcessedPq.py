@@ -98,9 +98,7 @@ def records(df): return df.to_records(index=False).tolist()
 
 import pandas as pd
 import shutil
-def _mergeParquet(dirinfo):
-
-    pqidx,dir = dirinfo
+def _mergeParquet(dir):
 
     files = glob.glob(dir+"/*_pre.pq")
     data = []
@@ -134,12 +132,7 @@ def mergeParquet(pathout,ncore):
 
         p = pathout+"/"+dir
         pqidx = pqidx+1
-        dirlistTohandle.append((pqidx,p))
-
-
-    with Pool(ncore) as p:
-
-        p.map(_mergeParquet,dirlistTohandle)
+        _mergeParquet(dir)
 
 
 def h5tosegmantedPq(path,pathout,ref,MAX_CORE,qvaluethres,fmercurrent,mappyoption):
@@ -152,7 +145,6 @@ def h5tosegmantedPq(path,pathout,ref,MAX_CORE,qvaluethres,fmercurrent,mappyoptio
         print(cnt,f5file)
         preprocess(f5file,pathout,ref,ncore,qvaluethres,fmercurrent,mappyoption)
         cnt += 1
-        break
 
     #marge Parquet
     print("merge files")
