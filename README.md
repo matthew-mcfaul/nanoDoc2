@@ -10,7 +10,7 @@ The software nanoDoc2 consists of three parts, the first part is sequence to sig
 
 To detect RNA modification using learned weight, a Linux machine with more than 20GB GPU memory (VRAM) with multiple CPU cores is required. However, for training a nanoDoc2 neural network, a GPU with at least 50GB memory (VRAM) (in total) is required. Moreover, following software are required to be installed:
 
-1. Guppy basecaller (version 6.1.2): Guppy basecaller is available on ONT website to the members of the ONT community. One should run Guppy basecaller with fast5 output option ‘- fast5_out’.
+1. Guppy basecaller (version 6.1.2): Guppy basecaller is available on ONT website to the members of the ONT community. One should run Guppy basecaller with fast5 output option ‘- fast5_out’. NOTE: After Guppy v6.2.1 the option ‘- fast5_out’ was deprecated. Use version 6.2.1 [https://cdn.oxfordnanoportal.com/software/analysis/ont-guppy_6.2.1_linux64.tar.gz]
 2. Minimap2 -  for pairwise alignment between nucleotide sequences. See [https://github.com/lh3/minimap2.git]().
 3. Tensorflow (2.5.2) with Cuda (11.2) + CuDNN (8.1) in Python (3.6) environment is tested.
 
