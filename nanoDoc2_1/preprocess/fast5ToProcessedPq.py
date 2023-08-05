@@ -129,8 +129,9 @@ def mergeParquet(pathout,ncore):
 
     pqidx = 0
     for dir in dirlist:
-
         p = pathout+"/"+dir
+        if not os.path.isdir(p):
+            continue
         pqidx = pqidx+1
         _mergeParquet(dir)
 
